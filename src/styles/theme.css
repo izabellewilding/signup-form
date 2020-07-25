@@ -1,0 +1,9 @@
+:root {
+  --theme-grey: #2b3046;
+  --theme-grey-light: #2b304612;
+  --theme-orange: #ea4b1e;
+  --theme-orange-light: #ea4a1ed4;
+  --theme-blue: #82c0b9;
+  --theme-blue-light: #82c0b99c;
+  --theme-gutter-top: 16px;
+}
