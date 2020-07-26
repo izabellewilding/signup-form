@@ -6,6 +6,9 @@ import { Label } from "./label";
 import { Field } from "./field";
 import { Button } from "./button";
 
+//Todo:
+// - JavaScript form & password validation
+
 const RegistrationForm = () => {
   return (
     <Container>
@@ -27,7 +30,16 @@ const RegistrationForm = () => {
               name="password"
               type="password"
               minlength="8"
-              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+              onInput={(e) => e.target.setCustomValidity("")}
+              onInvalid={(e) => {
+                e.target.setCustomValidity("");
+                if (!e.target.validity.valid) {
+                  e.target.setCustomValidity(
+                    "At least one upper case English letter, At least one lower case, At least one digit, At least one special character, Minimum eight in length .{8,} (with the anchors)"
+                  );
+                }
+              }}
               required
             />
           </Field>
