@@ -19,6 +19,7 @@ const RegistrationForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState();
   const [animate, setAnimate] = useState(false);
@@ -112,6 +113,25 @@ const RegistrationForm = () => {
               required
             />
           </Field>
+          <Field>
+            <Label htmlFor="confirmPassword">
+              <Password />
+            </Label>
+          </Field>
+          <PasswordInput
+            name="confirmPassword"
+            type="password"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            onInput={(e) => e.target.setCustomValidity("")}
+            onBlur={(e) => {
+              e.target.setCustomValidity("");
+              if (password && confirmPassword && password !== confirmPassword) {
+                e.target.setCustomValidity("Passwords must match");
+              }
+            }}
+          />
           <Button type="submit" disabled={submitting}>
             <Body button>Submit</Body>
           </Button>
