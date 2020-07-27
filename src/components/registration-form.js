@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, FormContainer, Form } from "./containers";
 import { Heading1, Body } from "./typography";
-import { Input } from "./input";
+import { Input, PasswordInput } from "./input";
 import { Label } from "./label";
 import { Field } from "./field";
 import { Button } from "./button";
@@ -22,7 +22,7 @@ const RegistrationForm = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); //default would be to refresh page and navigte to /thanks
+    e.preventDefault();
     setSubmitting(true);
     const form = e.target;
     fetch("", {
@@ -78,7 +78,7 @@ const RegistrationForm = () => {
             <Label for="password">
               <Password />
             </Label>
-            <Input
+            <PasswordInput
               name="password"
               type="password"
               placeholder="Password"

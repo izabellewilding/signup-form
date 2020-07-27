@@ -13,7 +13,9 @@ export const Input = styled.input`
   &:focus {
     outline: 1px auto var(--theme-blue);
   }
+`;
 
+export const PasswordInput = styled(Input)`
   &:invalid {
     outline: 1px auto var(--theme-red);
   }
