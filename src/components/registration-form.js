@@ -20,7 +20,6 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const pageTitleRef = useRef();
   const [success, setSuccess] = useState();
   const [animate, setAnimate] = useState(false);
 
