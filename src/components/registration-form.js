@@ -5,9 +5,9 @@ import { Input } from "./input";
 import { Label } from "./label";
 import { Field } from "./field";
 import { Button } from "./button";
-
-//Todo:
-// - JavaScript form & password validation
+import { ReactComponent as User } from "../assets/user.svg";
+import { ReactComponent as Email } from "../assets/email.svg";
+import { ReactComponent as Password } from "../assets/padlock.svg";
 
 const RegistrationForm = () => {
   return (
@@ -17,15 +17,21 @@ const RegistrationForm = () => {
         <Body>Sign up with your name, email, and a password.</Body>
         <Form>
           <Field>
-            <Label for="name">Name</Label>
+            <Label for="name">
+              <User />
+            </Label>
             <Input name="name" type="text" required />
           </Field>
           <Field>
-            <Label for="email">Email</Label>
+            <Label for="email">
+              <Email />
+            </Label>
             <Input name="Email" type="text" required />
           </Field>
           <Field>
-            <Label for="password">Password</Label>
+            <Label for="password">
+              <Password />
+            </Label>
             <Input
               name="password"
               type="password"
@@ -36,7 +42,7 @@ const RegistrationForm = () => {
                 e.target.setCustomValidity("");
                 if (!e.target.validity.valid) {
                   e.target.setCustomValidity(
-                    "At least one upper case English letter, At least one lower case, At least one digit, At least one special character, Minimum eight in length .{8,} (with the anchors)"
+                    "Must contain at least one upper case letter, at least one lower case letter, at least one number, at least one special character, minimum eight in length"
                   );
                 }
               }}

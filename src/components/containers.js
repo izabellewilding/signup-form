@@ -8,8 +8,8 @@ export const CenteredContainer = styled.div`
 `;
 
 export const Container = styled(CenteredContainer)`
-  min-width: 100vh;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100%;
   background-color: var(--theme-grey);
   margin: auto;
 `;
