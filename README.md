@@ -10,7 +10,7 @@ Registration Form</h1>
 <p align="center">A registration form built with Styled-Component and React Hooks</p>
 
 
-![Site-screenshot](/src/images/screenshot.JPG)
+![screenshot](/src/images/screenshot.JPG)
 
 ## Built With
 
