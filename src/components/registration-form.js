@@ -55,6 +55,7 @@ const RegistrationForm = () => {
             <Input
               name="name"
               type="text"
+              placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -67,6 +68,7 @@ const RegistrationForm = () => {
             <Input
               name="Email"
               type="text"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -79,6 +81,7 @@ const RegistrationForm = () => {
             <Input
               name="password"
               type="password"
+              placeholder="Password"
               minlength="8"
               pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
               onInput={(e) => e.target.setCustomValidity("")}
