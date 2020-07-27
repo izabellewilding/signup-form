@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, FormContainer, Form } from "./containers";
 import { Heading1, Body } from "./typography";
 import { Input } from "./input";
@@ -9,24 +9,68 @@ import { ReactComponent as User } from "../assets/user.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Password } from "../assets/padlock.svg";
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
 const RegistrationForm = () => {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); //default would be to refresh page and navigte to /thanks
+    setSubmitting(true);
+    const form = e.target;
+    fetch("", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        name,
+        email,
+        password,
+      }),
+    })
+      .then(() => {
+        console.warn("then");
+      })
+      .catch((error) => alert(error))
+      .finally(() => setSubmitting(false));
+  };
+
   return (
     <Container>
       <Heading1>Create an Account</Heading1>
       <FormContainer>
         <Body>Sign up with your name, email, and a password.</Body>
-        <Form>
+        <Form name="registration" onSubmit={handleSubmit}>
           <Field>
             <Label for="name">
               <User />
             </Label>
-            <Input name="name" type="text" required />
+            <Input
+              name="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </Field>
           <Field>
             <Label for="email">
               <Email />
             </Label>
-            <Input name="Email" type="text" required />
+            <Input
+              name="Email"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </Field>
           <Field>
             <Label for="password">
@@ -46,10 +90,12 @@ const RegistrationForm = () => {
                   );
                 }
               }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </Field>
-          <Button type="submit">
+          <Button type="submit" disabled={submitting}>
             <Body button>Submit</Body>
           </Button>
         </Form>

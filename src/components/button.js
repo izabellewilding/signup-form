@@ -10,6 +10,7 @@ export const Button = styled.button`
   padding: 8px;
   height: 45px;
   cursor: pointer;
+  border-radius: var(--theme-border-rounded);
 
   &:hover {
     background-color: var(--theme-orange);
