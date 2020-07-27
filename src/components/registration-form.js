@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, FormContainer, Form } from "./containers";
 import { Heading1, Body } from "./typography";
 import { Input, PasswordInput } from "./input";
