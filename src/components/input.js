@@ -16,7 +16,7 @@ export const Input = styled.input`
 `;
 
 export const PasswordInput = styled(Input)`
-  &:focus&:invalid {
+  &:focus:invalid {
     outline: 1px auto var(--theme-error);
   }
 `;

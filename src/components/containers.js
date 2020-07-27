@@ -28,7 +28,7 @@ export const FormContainer = styled(CenteredContainer)`
   display: ${(props) => (props.hidden ? "none" : "block")};
   transform: ${(props) =>
     props.animateIn ? "translateY(0px)" : "translateY(1000px)"};
-  transition: all 1s;
+  transition: transform 1s;
 
   @media (min-width: 600px) {
     max-width: 424px;

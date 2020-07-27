@@ -126,9 +126,11 @@ const RegistrationForm = () => {
             type="password"
             placeholder="Confirm password"
             value={confirmPassword}
+            minlength="8"
+            required
             onChange={(e) => setConfirmPassword(e.target.value)}
             onInput={(e) => e.target.setCustomValidity("")}
-            onBlur={(e) => {
+            onInvalid={(e) => {
               e.target.setCustomValidity("");
               if (password && confirmPassword && password !== confirmPassword) {
                 e.target.setCustomValidity("Passwords must match");
