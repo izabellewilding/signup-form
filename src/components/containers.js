@@ -25,6 +25,7 @@ export const FormContainer = styled(CenteredContainer)`
   background-color: white;
   box-shadow: 1px 0px 15px -4px #000000;
   border-radius: var(--theme-border-rounded);
+  display: ${(props) => (props.hidden ? "none" : "block")};
 
   @media (min-width: 600px) {
     max-width: 424px;

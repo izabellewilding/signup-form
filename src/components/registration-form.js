@@ -21,6 +21,7 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const pageTitleRef = useRef();
+  const [success, setSuccess] = useState();
 
   const handleSubmit = (e) => {
     //prevent the default form behaviour: refreshing page
@@ -42,9 +43,7 @@ const RegistrationForm = () => {
         console.log("response", response);
       })
       .then(() => {
-        pageTitleRef.current.innerHTML = `Welcome, ${name}.`;
-        const registrationForm = document.getElementById("form");
-        registrationForm.removeChild(registrationForm.childNodes[1]);
+        setSuccess(true);
       })
       .catch((error) => alert(error))
       .finally(() => setSubmitting(false));
@@ -52,8 +51,10 @@ const RegistrationForm = () => {
 
   return (
     <Container id="form">
-      <Heading1 ref={pageTitleRef}>Create an Account</Heading1>
-      <FormContainer>
+      <Heading1 ref={pageTitleRef}>
+        {success ? `Welcome, ${name}` : "Create an Account"}
+      </Heading1>
+      <FormContainer hidden={success}>
         <Body>Sign up with your name, email, and a password.</Body>
         <Form method="POST" onSubmit={handleSubmit}>
           <Field>
