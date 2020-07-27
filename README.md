@@ -23,6 +23,7 @@ Registration Form</h1>
 * JavaScript form submission
 * Clean use of CSS-in-JS with Styled-Components 
 * CSS Variables for theming
+* Form data sent to a Netlify Function
 
 
 ## Getting Started
