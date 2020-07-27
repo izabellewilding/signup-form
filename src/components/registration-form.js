@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container, FormContainer, Form } from "./containers";
 import { Heading1, Body } from "./typography";
 import { Input, PasswordInput } from "./input";
@@ -22,6 +22,7 @@ const RegistrationForm = () => {
   const [submitting, setSubmitting] = useState(false);
   const pageTitleRef = useRef();
   const [success, setSuccess] = useState();
+  const [animate, setAnimate] = useState(false);
 
   const handleSubmit = (e) => {
     //prevent the default form behaviour: refreshing page
@@ -29,6 +30,7 @@ const RegistrationForm = () => {
     //set submitting so button can appear disabled
     setSubmitting(true);
     const form = e.target;
+    //send form data to netlify function
     fetch("/.netlify/functions/registration", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -49,12 +51,14 @@ const RegistrationForm = () => {
       .finally(() => setSubmitting(false));
   };
 
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
+
   return (
-    <Container id="form">
-      <Heading1 ref={pageTitleRef}>
-        {success ? `Welcome, ${name}` : "Create an Account"}
-      </Heading1>
-      <FormContainer hidden={success}>
+    <Container>
+      <Heading1>{success ? `Welcome, ${name}` : "Create an Account"}</Heading1>
+      <FormContainer hidden={success} animateIn={animate}>
         <Body>Sign up with your name, email, and a password.</Body>
         <Form method="POST" onSubmit={handleSubmit}>
           <Field>
@@ -68,6 +72,7 @@ const RegistrationForm = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              autocomplete
             />
           </Field>
           <Field>
@@ -81,6 +86,7 @@ const RegistrationForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autocomplete
             />
           </Field>
           <Field>
