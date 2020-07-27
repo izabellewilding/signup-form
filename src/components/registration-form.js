@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Container, FormContainer, Form } from "./containers";
 import { Heading1, Body } from "./typography";
 import { Input, PasswordInput } from "./input";
@@ -16,16 +16,19 @@ function encode(data) {
 }
 
 const RegistrationForm = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const pageTitleRef = useRef();
 
   const handleSubmit = (e) => {
+    //prevent the default form behaviour: refreshing page
     e.preventDefault();
+    //set submitting so button can appear disabled
     setSubmitting(true);
     const form = e.target;
-    fetch("", {
+    fetch("/.netlify/functions/registration", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
@@ -35,21 +38,26 @@ const RegistrationForm = () => {
         password,
       }),
     })
+      .then((response) => {
+        console.log("response", response);
+      })
       .then(() => {
-        console.warn("then");
+        pageTitleRef.current.innerHTML = `Welcome, ${name}.`;
+        const registrationForm = document.getElementById("form");
+        registrationForm.removeChild(registrationForm.childNodes[1]);
       })
       .catch((error) => alert(error))
       .finally(() => setSubmitting(false));
   };
 
   return (
-    <Container>
-      <Heading1>Create an Account</Heading1>
+    <Container id="form">
+      <Heading1 ref={pageTitleRef}>Create an Account</Heading1>
       <FormContainer>
         <Body>Sign up with your name, email, and a password.</Body>
-        <Form name="registration" onSubmit={handleSubmit}>
+        <Form method="POST" onSubmit={handleSubmit}>
           <Field>
-            <Label for="name">
+            <Label htmlFor="name">
               <User />
             </Label>
             <Input
@@ -62,7 +70,7 @@ const RegistrationForm = () => {
             />
           </Field>
           <Field>
-            <Label for="email">
+            <Label htmlFor="email">
               <Email />
             </Label>
             <Input
@@ -75,7 +83,7 @@ const RegistrationForm = () => {
             />
           </Field>
           <Field>
-            <Label for="password">
+            <Label htmlFor="password">
               <Password />
             </Label>
             <PasswordInput

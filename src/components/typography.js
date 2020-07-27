@@ -6,6 +6,8 @@ export const Heading1 = styled.h1`
   letter-spacing: 0.5px;
   color: white;
   margin-bottom: 52px;
+  text-align: center;
+  padding: 1rem;
 `;
 
 export const Body = styled.p`

@@ -1,6 +1,6 @@
 exports.handler = function (event, context, callback) {
+  console.log("bodyy", event.body);
   callback(null, {
-    statusCode: 200,
-    body: "hello",
+    statusCode: 204,
   });
 };
