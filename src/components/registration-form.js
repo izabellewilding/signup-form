@@ -9,6 +9,9 @@ import { ReactComponent as User } from "../assets/user.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Password } from "../assets/padlock.svg";
 
+//Todo:
+//28/07: Send form data to database and create list of users
+
 function encode(data) {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
