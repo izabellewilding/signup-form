@@ -9,14 +9,12 @@ export const Input = styled.input`
   padding: 15px 10px 15px 42px;
   box-sizing: border-box;
   border-radius: var(--theme-border-rounded);
-
   &:focus {
-    outline: 1px auto var(--theme-blue);
+    outline: none;
+    box-shadow: var(--theme-blue) 0px 0px 2px 2px;
   }
-`;
-
-export const PasswordInput = styled(Input)`
   &:focus:invalid {
-    outline: 1px auto var(--theme-error);
+    outline: none;
+    box-shadow: var(--theme-error) 0px 0px 2px 2px;
   }
 `;

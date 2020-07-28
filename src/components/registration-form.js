@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, FormContainer, Form } from "./containers";
 import { Heading1, Body } from "./typography";
-import { Input, PasswordInput } from "./input";
+import { Input } from "./input";
 import { Label } from "./label";
 import { Field } from "./field";
 import { Button } from "./button";
@@ -11,6 +11,7 @@ import { ReactComponent as Password } from "../assets/padlock.svg";
 
 //Todo:
 //28/07: Send form data to database and create list of users
+//write full tests for registration form
 
 function encode(data) {
   return Object.keys(data)
@@ -84,9 +85,16 @@ const RegistrationForm = () => {
             </Label>
             <Input
               name="Email"
-              type="text"
+              type="email"
               placeholder="Email"
               value={email}
+              onInput={(e) => e.target.setCustomValidity("")}
+              onInvalid={(e) => {
+                e.target.setCustomValidity("");
+                if (!e.target.validity.valid) {
+                  e.target.setCustomValidity("Must be a valid email address");
+                }
+              }}
               onChange={(e) => setEmail(e.target.value)}
               required
               autocomplete
@@ -96,7 +104,7 @@ const RegistrationForm = () => {
             <Label htmlFor="password">
               <Password />
             </Label>
-            <PasswordInput
+            <Input
               name="password"
               type="password"
               placeholder="Password"
@@ -121,7 +129,7 @@ const RegistrationForm = () => {
               <Password />
             </Label>
           </Field>
-          <PasswordInput
+          <Input
             name="confirmPassword"
             type="password"
             placeholder="Confirm password"
@@ -130,7 +138,7 @@ const RegistrationForm = () => {
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
             onInput={(e) => e.target.setCustomValidity("")}
-            onInvalid={(e) => {
+            onBlur={(e) => {
               e.target.setCustomValidity("");
               if (password && confirmPassword && password !== confirmPassword) {
                 e.target.setCustomValidity("Passwords must match");

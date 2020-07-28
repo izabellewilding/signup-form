@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-AxjAm sc-AxirZ cjPigA"
+  >
+    <h1
+      class="sc-AxhUy djFllI"
+    >
+      Create an Account
+    </h1>
+    <div
+      class="sc-AxjAm sc-AxiKw cZcByZ"
+    >
+      <p
+        class="sc-AxgMl eKgqRt"
+      >
+        Sign up with your name, email, and a password.
+      </p>
+      <form
+        class="sc-AxhCb buIdnp"
+        method="POST"
+      >
+        <div
+          class="sc-fzozJi kenODZ"
+        >
+          <p
+            class="sc-AxgMl sc-AxmLO eIjKmR"
+            for="name"
+          >
+            <svg>
+              user.svg
+            </svg>
+          </p>
+          <input
+            class="sc-AxheI lhaela"
+            name="name"
+            placeholder="Name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-fzozJi kenODZ"
+        >
+          <p
+            class="sc-AxgMl sc-AxmLO eIjKmR"
+            for="email"
+          >
+            <svg>
+              email.svg
+            </svg>
+          </p>
+          <input
+            class="sc-AxheI lhaela"
+            name="Email"
+            placeholder="Email"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-fzozJi kenODZ"
+        >
+          <p
+            class="sc-AxgMl sc-AxmLO eIjKmR"
+            for="password"
+          >
+            <svg>
+              padlock.svg
+            </svg>
+          </p>
+          <input
+            class="sc-AxheI sc-Axmtr jUZfFS"
+            name="password"
+            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+            placeholder="Password"
+            required=""
+            type="password"
+            value=""
+          />
+        </div>
+        <div
+          class="sc-fzozJi kenODZ"
+        >
+          <p
+            class="sc-AxgMl sc-AxmLO eIjKmR"
+            for="confirmPassword"
+          >
+            <svg>
+              padlock.svg
+            </svg>
+          </p>
+        </div>
+        <input
+          class="sc-AxheI sc-Axmtr jUZfFS"
+          name="confirmPassword"
+          placeholder="Confirm password"
+          required=""
+          type="password"
+          value=""
+        />
+        <button
+          class="sc-fzoLsD gjkvof"
+          type="submit"
+        >
+          <p
+            class="sc-AxgMl bFBayz"
+          >
+            Submit
+          </p>
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

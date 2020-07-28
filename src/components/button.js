@@ -11,7 +11,10 @@ export const Button = styled.button`
   height: 45px;
   cursor: pointer;
   border-radius: var(--theme-border-rounded);
-
+  &:focus {
+    outline: none;
+    box-shadow: var(--theme-blue) 0px 0px 2px 2px;
+  }
   &:hover {
     background-color: var(--theme-orange);
   }
