@@ -10,27 +10,32 @@ export const CenteredContainer = styled.div`
 export const Container = styled(CenteredContainer)`
   width: 100%;
   min-height: 100vh;
-  background-color: var(--theme-grey);
+  background-color: ${(props) =>
+    props.light ? "var(--theme-blue)" : "var(--theme-grey)"};
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  @media (min-width: 800px) {
+    flex-direction: ${(props) => (props.row ? "row" : "column")};
+    width: ${(props) => (props.small ? "50%" : "100%")};
+  }
 `;
 
 export const FormContainer = styled(CenteredContainer)`
   display: flex;
-  flex-direction: column;
-  max-width: 84%;
   padding: 20px 24px 20px 24px;
   text-align: left;
-  width: 100%;
-  height: auto;
+  width: 85%;
+  height: 100%;
   background-color: white;
   box-shadow: 1px 0px 15px -4px #000000;
   border-radius: var(--theme-border-rounded);
   display: ${(props) => (props.hidden ? "none" : "block")};
-  transform: ${(props) =>
-    props.animateIn ? "translateY(0px)" : "translateY(1000px)"};
-  transition: transform 1s;
 
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
+    width: 80%;
     max-width: 424px;
     padding: 32px 40px 40px;
   }

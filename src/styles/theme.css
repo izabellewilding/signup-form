@@ -1,10 +1,10 @@
 :root {
   --theme-grey: #2b3046;
-  --theme-grey-light: #2b304612;
-  --theme-orange: #ea4b1e;
-  --theme-orange-light: #ea4a1ed4;
+  --theme-grey-light: #2b3046ab;
+  --theme-orange: #b02500;
+  --theme-orange-light: #d32c00;
   --theme-blue: #82c0b9;
-  --theme-blue-light: #82c0b99c;
+  --theme-blue-light: #97c6c126;
   --theme-gutter-top: 12px;
   --theme-error: #b00020;
   --theme-border-rounded: 8px;

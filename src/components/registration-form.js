@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Container, FormContainer, Form } from "./containers";
-import { Heading1 } from "./typography";
+import { Heading1, Heading2 } from "./typography";
 import { Input } from "./input";
 import { Label } from "./label";
 import { Field } from "./field";
 import { Button } from "./button";
+import { List } from "./list";
 import { Icon } from "./icon";
 import { ReactComponent as User } from "../assets/user.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Password } from "../assets/padlock.svg";
+import { ReactComponent as LoginSVG } from "../assets/undraw_sign_in_e6hj.svg";
 
 //Todo:
 //28/07: Send form data to database and create list of users
@@ -61,107 +63,124 @@ const RegistrationForm = () => {
   }, []);
 
   return (
-    <Container>
-      <Heading1>{success ? `Welcome, ${name}` : "Create an Account"}</Heading1>
-      <FormContainer hidden={success} animateIn={animate}>
-        <Form method="POST" onSubmit={handleSubmit}>
-          <Field>
-            <Icon>
-              <User />
-            </Icon>
-            <Label htmlFor="name" label="name">
-              Name
-            </Label>
-            <Input
-              name="name"
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              autocomplete
-            />
-          </Field>
-          <Field>
-            <Icon>
-              <Email />
-            </Icon>
-            <Label htmlFor="email" label="email">
-              Email
-            </Label>
-            <Input
-              name="Email"
-              type="email"
-              id="email"
-              value={email}
-              onInput={(e) => e.target.setCustomValidity("")}
-              onInvalid={(e) => {
-                e.target.setCustomValidity("");
-                if (!e.target.validity.valid) {
-                  e.target.setCustomValidity("Must be a valid email address");
-                }
-              }}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autocomplete
-            />
-          </Field>
-          <Field>
-            <Icon>
-              <Password />
-            </Icon>
-            <Label htmlFor="password">Password</Label>
-            <Input
-              name="password"
-              type="password"
-              id="password"
-              minlength="8"
-              pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
-              onInput={(e) => e.target.setCustomValidity("")}
-              onInvalid={(e) => {
-                e.target.setCustomValidity("");
-                if (!e.target.validity.valid) {
-                  e.target.setCustomValidity(
-                    "Must contain at least one upper case letter, at least one lower case letter, at least one number, at least one special character, minimum eight in length"
-                  );
-                }
-              }}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </Field>
-          <Field>
-            <Icon>
-              <Password />
-            </Icon>
-            <Label htmlFor="confirmPassword">Confirm password</Label>
-            <Input
-              name="confirmPassword"
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              minlength="8"
-              required
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              onKeyUp={(e) => {
-                if (
-                  password &&
-                  confirmPassword &&
-                  password !== confirmPassword
-                ) {
-                  e.target.setCustomValidity("Passwords must match");
-                } else {
+    <Container row>
+      <Container light small>
+        <Heading1>
+          {success ? `Welcome, ${name}` : "Create an Account"}
+        </Heading1>
+        <LoginSVG />
+      </Container>
+      <Container small>
+        <FormContainer hidden={success} animateIn={animate}>
+          <Heading2>Sign up</Heading2>
+          <Form method="POST" onSubmit={handleSubmit}>
+            <Field>
+              <Icon>
+                <User />
+              </Icon>
+              <Label htmlFor="name" label="name">
+                Name
+              </Label>
+              <Input
+                name="name"
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                autocomplete
+              />
+            </Field>
+            <Field>
+              <Icon>
+                <Email />
+              </Icon>
+              <Label htmlFor="email" label="email">
+                Email
+              </Label>
+              <Input
+                name="Email"
+                type="email"
+                id="email"
+                value={email}
+                onInput={(e) => e.target.setCustomValidity("")}
+                onInvalid={(e) => {
                   e.target.setCustomValidity("");
-                }
-              }}
-            />
-          </Field>
-          <Button type="submit" disabled={submitting}>
-            Submit
-          </Button>
-        </Form>
-      </FormContainer>
+                  if (!e.target.validity.valid) {
+                    e.target.setCustomValidity("Must be a valid email address");
+                  }
+                }}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autocomplete
+              />
+            </Field>
+            <Field>
+              <Icon>
+                <Password />
+              </Icon>
+              <Label htmlFor="password">Password</Label>
+
+              <Input
+                name="password"
+                type="password"
+                id="password"
+                minlength="8"
+                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                onInput={(e) => e.target.setCustomValidity("")}
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("");
+                  if (!e.target.validity.valid) {
+                    e.target.setCustomValidity(
+                      "Must contain at least one upper case letter, at least one lower case letter, at least one number, at least one special character, minimum eight in length"
+                    );
+                  }
+                }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </Field>
+
+            <Field>
+              <Icon>
+                <Password />
+              </Icon>
+              <Label htmlFor="confirmPassword">Confirm password</Label>
+              <Input
+                name="confirmPassword"
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                minlength="8"
+                required
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                onKeyUp={(e) => {
+                  if (
+                    password &&
+                    confirmPassword &&
+                    password !== confirmPassword
+                  ) {
+                    e.target.setCustomValidity("Passwords must match");
+                  } else {
+                    e.target.setCustomValidity("");
+                  }
+                }}
+              />
+            </Field>
+            <List>
+              <strong>Password Must Contain</strong>
+              <li>At least 1 uppercase and lowercase letter</li>
+              <li>At least 1 number</li>
+              <li>At least 1 special characer</li>
+              <li>At least 8 characers</li>
+            </List>
+            <Button type="submit" disabled={submitting}>
+              Submit
+            </Button>
+          </Form>
+        </FormContainer>
+      </Container>
     </Container>
   );
 };
