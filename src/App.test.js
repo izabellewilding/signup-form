@@ -4,6 +4,6 @@ import App from "./App";
 
 test("renders registration form", () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/Sign up with your name/i);
+  const linkElement = getByText(/Create an Account/i);
   expect(linkElement).toBeInTheDocument();
 });

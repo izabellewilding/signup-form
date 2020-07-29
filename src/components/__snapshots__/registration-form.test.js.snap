@@ -1,117 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `
+exports[`Registration renders 1`] = `
 <DocumentFragment>
   <div
     class="sc-AxjAm sc-AxirZ cjPigA"
   >
     <h1
-      class="sc-AxhUy djFllI"
+      class="sc-AxhUy dgXBZV"
     >
       Create an Account
     </h1>
     <div
       class="sc-AxjAm sc-AxiKw cZcByZ"
     >
-      <p
-        class="sc-AxgMl eKgqRt"
-      >
-        Sign up with your name, email, and a password.
-      </p>
       <form
         class="sc-AxhCb buIdnp"
         method="POST"
       >
         <div
-          class="sc-fzozJi kenODZ"
+          class="sc-Axmtr iILwIF"
         >
-          <p
-            class="sc-AxgMl sc-AxmLO eIjKmR"
-            for="name"
+          <i
+            class="sc-fzozJi iIEHUz"
           >
             <svg>
               user.svg
             </svg>
-          </p>
+          </i>
+          <label
+            class="sc-AxheI hpCUon"
+            for="name"
+            label="name"
+          >
+            Name
+          </label>
           <input
-            class="sc-AxheI lhaela"
+            class="sc-AxgMl iEowgC"
+            id="name"
             name="name"
-            placeholder="Name"
             required=""
             type="text"
             value=""
           />
         </div>
         <div
-          class="sc-fzozJi kenODZ"
+          class="sc-Axmtr iILwIF"
         >
-          <p
-            class="sc-AxgMl sc-AxmLO eIjKmR"
-            for="email"
+          <i
+            class="sc-fzozJi iIEHUz"
           >
             <svg>
               email.svg
             </svg>
-          </p>
+          </i>
+          <label
+            class="sc-AxheI hpCUon"
+            for="email"
+            label="email"
+          >
+            Email
+          </label>
           <input
-            class="sc-AxheI lhaela"
+            class="sc-AxgMl iEowgC"
+            id="email"
             name="Email"
-            placeholder="Email"
             required=""
-            type="text"
+            type="email"
             value=""
           />
         </div>
         <div
-          class="sc-fzozJi kenODZ"
+          class="sc-Axmtr iILwIF"
         >
-          <p
-            class="sc-AxgMl sc-AxmLO eIjKmR"
-            for="password"
+          <i
+            class="sc-fzozJi iIEHUz"
           >
             <svg>
               padlock.svg
             </svg>
-          </p>
+          </i>
+          <label
+            class="sc-AxheI hpCUon"
+            for="password"
+          >
+            Password
+          </label>
           <input
-            class="sc-AxheI sc-Axmtr jUZfFS"
+            class="sc-AxgMl iEowgC"
+            id="password"
             name="password"
             pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
-            placeholder="Password"
             required=""
             type="password"
             value=""
           />
         </div>
         <div
-          class="sc-fzozJi kenODZ"
+          class="sc-Axmtr iILwIF"
         >
-          <p
-            class="sc-AxgMl sc-AxmLO eIjKmR"
-            for="confirmPassword"
+          <i
+            class="sc-fzozJi iIEHUz"
           >
             <svg>
               padlock.svg
             </svg>
-          </p>
+          </i>
+          <label
+            class="sc-AxheI hpCUon"
+            for="confirmPassword"
+          >
+            Confirm password
+          </label>
+          <input
+            class="sc-AxgMl iEowgC"
+            id="confirmPassword"
+            name="confirmPassword"
+            required=""
+            type="password"
+            value=""
+          />
         </div>
-        <input
-          class="sc-AxheI sc-Axmtr jUZfFS"
-          name="confirmPassword"
-          placeholder="Confirm password"
-          required=""
-          type="password"
-          value=""
-        />
         <button
-          class="sc-fzoLsD gjkvof"
+          class="sc-AxmLO fVbkVc"
           type="submit"
         >
-          <p
-            class="sc-AxgMl bFBayz"
-          >
-            Submit
-          </p>
+          Submit
         </button>
       </form>
     </div>
