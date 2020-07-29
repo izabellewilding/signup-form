@@ -37,7 +37,7 @@ export const FormContainer = styled(CenteredContainer)`
   @media (min-width: 800px) {
     width: 80%;
     max-width: 424px;
-    padding: 32px 40px 40px;
+    padding: 19px 22px 19px;
   }
 `;
 

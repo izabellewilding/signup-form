@@ -4,7 +4,7 @@ export const Heading1 = styled.h1`
   font-family: "Raleway", Sans-serif;
   font-size: 62px;
   letter-spacing: 0.5px;
-  color: white;
+  color: var(--theme-grey);
   margin-bottom: 6px;
   text-align: center;
   padding: 1rem;

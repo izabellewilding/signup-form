@@ -168,8 +168,9 @@ const RegistrationForm = () => {
                 }}
               />
             </Field>
+            <br />
+            <p>Password Must Contain:</p>
             <List>
-              <strong>Password Must Contain</strong>
               <li>At least 1 uppercase and lowercase letter</li>
               <li>At least 1 number</li>
               <li>At least 1 special characer</li>
