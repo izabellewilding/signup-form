@@ -5,7 +5,8 @@
   --theme-orange-light: #ea4a1ed4;
   --theme-blue: #82c0b9;
   --theme-blue-light: #82c0b99c;
-  --theme-gutter-top: 16px;
+  --theme-gutter-top: 12px;
   --theme-error: #b00020;
   --theme-border-rounded: 8px;
+  --theme-primary-font: "Raleway";
 }

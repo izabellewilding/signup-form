@@ -9,6 +9,8 @@ export const Button = styled.button`
   margin-top: var(--theme-gutter-top);
   padding: 8px;
   height: 45px;
+  font-size: 1rem;
+  font-family: var(--theme-primary-font);
   cursor: pointer;
   border-radius: var(--theme-border-rounded);
   &:focus {

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container, FormContainer, Form } from "./containers";
-import { Heading1, Body } from "./typography";
+import { Heading1 } from "./typography";
 import { Input } from "./input";
 import { Label } from "./label";
 import { Field } from "./field";
 import { Button } from "./button";
+import { Icon } from "./icon";
 import { ReactComponent as User } from "../assets/user.svg";
 import { ReactComponent as Email } from "../assets/email.svg";
 import { ReactComponent as Password } from "../assets/padlock.svg";
@@ -63,16 +64,18 @@ const RegistrationForm = () => {
     <Container>
       <Heading1>{success ? `Welcome, ${name}` : "Create an Account"}</Heading1>
       <FormContainer hidden={success} animateIn={animate}>
-        <Body>Sign up with your name, email, and a password.</Body>
         <Form method="POST" onSubmit={handleSubmit}>
           <Field>
-            <Label htmlFor="name">
+            <Icon>
               <User />
+            </Icon>
+            <Label htmlFor="name" label="name">
+              Name
             </Label>
             <Input
               name="name"
               type="text"
-              placeholder="Name"
+              id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -80,13 +83,16 @@ const RegistrationForm = () => {
             />
           </Field>
           <Field>
-            <Label htmlFor="email">
+            <Icon>
               <Email />
+            </Icon>
+            <Label htmlFor="email" label="email">
+              Email
             </Label>
             <Input
               name="Email"
               type="email"
-              placeholder="Email"
+              id="email"
               value={email}
               onInput={(e) => e.target.setCustomValidity("")}
               onInvalid={(e) => {
@@ -101,13 +107,14 @@ const RegistrationForm = () => {
             />
           </Field>
           <Field>
-            <Label htmlFor="password">
+            <Icon>
               <Password />
-            </Label>
+            </Icon>
+            <Label htmlFor="password">Password</Label>
             <Input
               name="password"
               type="password"
-              placeholder="Password"
+              id="password"
               minlength="8"
               pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
               onInput={(e) => e.target.setCustomValidity("")}
@@ -125,28 +132,33 @@ const RegistrationForm = () => {
             />
           </Field>
           <Field>
-            <Label htmlFor="confirmPassword">
+            <Icon>
               <Password />
-            </Label>
+            </Icon>
+            <Label htmlFor="confirmPassword">Confirm password</Label>
+            <Input
+              name="confirmPassword"
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              minlength="8"
+              required
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              onKeyUp={(e) => {
+                if (
+                  password &&
+                  confirmPassword &&
+                  password !== confirmPassword
+                ) {
+                  e.target.setCustomValidity("Passwords must match");
+                } else {
+                  e.target.setCustomValidity("");
+                }
+              }}
+            />
           </Field>
-          <Input
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            minlength="8"
-            required
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            onInput={(e) => e.target.setCustomValidity("")}
-            onBlur={(e) => {
-              e.target.setCustomValidity("");
-              if (password && confirmPassword && password !== confirmPassword) {
-                e.target.setCustomValidity("Passwords must match");
-              }
-            }}
-          />
           <Button type="submit" disabled={submitting}>
-            <Body button>Submit</Body>
+            Submit
           </Button>
         </Form>
       </FormContainer>
